@@ -15,7 +15,7 @@ createData();
 
 function makeRequest(method, url, body, callbackSuccess) {
   var xhr = new XMLHttpRequest();
-
+  crossDomain: true;
   xhr.open(method, url, true);
   xhr.setRequestHeader("Content-Type", "application/json");
 

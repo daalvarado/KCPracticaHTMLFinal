@@ -21,7 +21,7 @@ __version__ = '0.1'
 __author__ = 'Alberto Casero (@KasAppeal)'
 
 API_ID_FIELD = 'id'
-API_PATH = '/api/'
+API_PATH = '/api/task'
 API_DATA_PATH = 'db'
 FIELDS_TO_RECOVER = '_fields'
 ORDERING_FIELDS = '_order'
@@ -434,7 +434,8 @@ class SparrestHandler(SimpleHTTPRequestHandler):
                         self.write_no_access_permission_to_file_response(resource_path)
                     else:  # Not a permission error.
                         raise
-
+    def do_OPTIONS(self):
+            self.send_header('Access-Control-Allow-Origin', '*')
 
 def run_on(ip, port):
     """
